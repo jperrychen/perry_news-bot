@@ -13,7 +13,7 @@ const httpAgent = new http.Agent({
 
 // 创建一个通用的 parser，使用 HTTPS agent（大多数 RSS 都是 HTTPS）
 const defaultParser = new Parser({
-  timeout: 10000,
+  timeout: 20000,
   headers: {
     "User-Agent": "news-bot/1.0",
     "Connection": "close"  // 显式关闭连接
@@ -37,7 +37,7 @@ function createParser(url) {
     
     // 如果是 HTTP，创建新的 parser 使用 HTTP agent
     return new Parser({
-      timeout: 10000,
+      timeout: 20000,
       headers: {
         "User-Agent": "news-bot/1.0",
         "Connection": "close"
@@ -54,9 +54,10 @@ function createParser(url) {
 
 export async function fetchRSS(url) {
   try {
+    const normalizedUrl = encodeURI(url);
     // 根据 URL 协议选择合适的 parser
-    const parser = createParser(url);
-    return await parser.parseURL(url);
+    const parser = createParser(normalizedUrl);
+    return await parser.parseURL(normalizedUrl);
   } catch (e) {
     console.error(`RSS fetch failed: ${url}`, e.message);
     return null;

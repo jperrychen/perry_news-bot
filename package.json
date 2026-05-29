@@ -1,15 +1,15 @@
 {
   "name": "news-bot",
   "version": "1.0.0",
-  "description": "Daily research & tech news digest bot powered by GitHub Actions",
+  "description": "Weekly industry hotspots digest bot for medium-to-long term market research",
   "type": "module",
   "main": "scripts/run.js",
   "scripts": {
     "start": "node scripts/run.js"
   },
   "keywords": [
-    "rss",
-    "news",
+    "industry-hotspots",
+    "market-research",
     "github-actions",
     "automation"
   ],
