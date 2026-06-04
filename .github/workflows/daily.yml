@@ -2,7 +2,7 @@ name: Weekly Industry Hotspots Digest
 
 on:
   schedule:
-    - cron: "0 15 * * 0"  # UTC 15:00 = UTC+8 Sunday 23:00
+    - cron: "0 4 * * 0" # UTC 04:00 = Asia/Shanghai Sunday 12:00
   workflow_dispatch:
 
 jobs:
